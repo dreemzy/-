@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Оплата и доставка — ElectroWorld</title>
+    <style>
+        
+        body { font-family: Arial, sans-serif; margin: 0; color: #333; }
+        header { background: #2c3e50; color: white; padding: 20px; border-bottom: 4px solid #3498db; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        
+        main { padding: 40px; max-width: 900px; margin: 0 auto; }
+        h2 { color: #2c3e50; border-left: 4px solid #3498db; padding-left: 10px; }
+
+        /* Оплата */
+        .payment-methods { display: flex; gap: 20px; margin: 20px 0; }
+        .method-item {
+            background: #fdfdfd; border: 1px solid #ddd;
+            padding: 20px; width: 30%; border-radius: 8px;
+            position: relative; /* Для демонстрации позиционирования */
+        }
+        .method-item img { height: 30px; margin-top: 10px; margin-right: 5px; }
+
+        /* Таблица доставки */
+        .delivery-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .delivery-table th { background: #3498db; color: white; padding: 12px; text-align: left; }
+        .delivery-table td { border: 1px solid #ddd; padding: 12px; }
+        .delivery-table tr:nth-child(even) { background: #f2f2f2; }
+
+        footer { background: #eee; padding: 20px; text-align: center; margin-top: 50px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><strong>ElectroWorld</strong></div>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="#">Каталог</a>
+        <a href="info.html">Оплата и доставка</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Информация для покупателей</h1>
+
+    <section>
+        <h2>Способы оплаты</h2>
+        <div class="payment-methods">
+            <article class="method-item">
+                <h3>Картой онлайн</h3>
+                <p>Безопасная оплата через шлюз банка.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MC">
+            </article>
+            <article class="method-item">
+                <h3>PayPal / Эл. деньги</h3>
+                <p>Моментальное зачисление средств.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+            </article>
+            <article class="method-item">
+                <h3>При получении</h3>
+                <p>Наличными или картой курьеру.</p>
+            </article>
+        </div>
+    </section>
+
+    <section>
+        <h2>Стоимость доставки</h2>
+        <table class="delivery-table">
+            <thead>
+                <tr>
+                    <th>Регион / Способ</th>
+                    <th>Срок доставки</th>
+                    <th>Стоимость</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Москва (Курьер)</td>
+                    <td>1 день</td>
+                    <td>300 руб.</td>
+                </tr>
+                <tr>
+                    <td>Центральная РФ (СДЭК)</td>
+                    <td>2-4 дня</td>
+                    <td>500 руб.</td>
+                </tr>
+                <tr>
+                    <td>Дальний Восток (Авиа)</td>
+                    <td>5-7 дней</td>
+                    <td>1200 руб.</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 ElectroWorld. Информация актуальна на текущий год.</p>
+</footer>
+
+</body>
+</html>

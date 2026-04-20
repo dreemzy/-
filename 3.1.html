@@ -1,0 +1,82 @@
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: sans-serif; padding: 40px; background-color: #f4f4f4; }
+        
+        
+        .table-container {
+            max-width: 700px;
+            max-height: 400px;
+            overflow: auto;
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        table { border-collapse: separate; border-spacing: 0; width: 100%; }
+
+        th, td {
+            padding: 12px 25px;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            text-align: center;
+            min-width: 120px;
+        }
+
+        
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: #add8e6; /* Светло-голубой */
+            z-index: 10;
+        }
+
+        
+        tbody td:first-child {
+            position: sticky;
+            left: 0;
+            background-color: #add8e6;
+            font-weight: bold;
+            z-index: 5;
+        }
+
+        
+        thead th:first-child {
+            position: sticky;
+            top: 0;
+            left: 0;
+            z-index: 15;
+            background-color: #add8e6;
+        }
+
+        
+        tbody tr:nth-child(even) { background-color: #f9f9f9; }
+        tbody tr:last-child td { border-bottom: none; }
+        table tr td:last-child { border-right: none; }
+    </style>
+</head>
+<body>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                    <th>Header 4</th>
+                    <th>Header 5</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Line 1</td><td>23</td><td>123</td><td>43</td><td>12</td><td>76</td></tr>
+                <tr><td>Line 2</td><td>23</td><td>123</td><td>43</td><td>12</td><td>76</td></tr>
+                <tr><td>Line 3</td><td>34</td><td>63</td><td>25</td><td>7</td><td>23</td></tr>
+                <tr><td>Line 4</td><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+                <tr><td>Line 5</td><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+                <tr><td>Line 6</td><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+                <tr><td>Line 7</td><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+                <tr><td>Line 8</td><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+            </tbody>
+        </table>
+    </div>
+</body>
