@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карточка товара</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; }
+        
+        /* Обновленные стили шапки */
+        header { 
+            background: #2c3e50; color: white; padding: 20px; 
+            border-bottom: 4px solid #3498db; display: flex; justify-content: space-between;
+        }
+        nav a { color: white; margin: 0 15px; transition: color 0.3s; }
+        nav a:hover { color: #3498db; }
+
+        main { padding: 40px; max-width: 1000px; margin: 0 auto; display: flex; gap: 40px; }
+        
+        /* Галерея из задания №3 */
+        .product-gallery { width: 50%; }
+        .main-img { width: 100%; border: 1px solid #ddd; }
+        .thumbs { display: flex; gap: 10px; margin-top: 10px; }
+        .thumbs img { width: 60px; cursor: pointer; opacity: 0.7; }
+        .thumbs img:hover { opacity: 1; border: 1px solid #3498db; }
+
+        /* Описание */
+        .product-info { width: 50%; }
+        .btn-buy { 
+            background: #27ae60; color: white; border: none; 
+            padding: 15px 30px; font-size: 18px; cursor: pointer; border-radius: 5px;
+        }
+        .btn-buy:hover { background: #2ecc71; }
+
+        footer { 
+            background: #eee; padding: 20px; text-align: center; 
+            border-top: 1px solid #ccc; margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">ElectroWorld</div>
+    <nav>
+        <a href="index.html">Главная</a>
+        <a href="#">Каталог</a>
+        <a href="#">Контакты</a>
+    </nav>
+</header>
+
+<main>
+    <div class="product-gallery">
+        <img class="main-img" src="https://basket-17.wbbasket.ru/vol2679/part267980/267980248/images/big/2.webp" alt="Product">
+        <div class="thumbs">
+            <img src="https://basket-17.wbbasket.ru/vol2679/part267980/267980248/images/big/3.webp">
+            <img src="https://basket-17.wbbasket.ru/vol2679/part267980/267980248/images/big/4.webp">
+            <img src="https://basket-17.wbbasket.ru/vol2679/part267980/267980248/images/big/13.webp">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h1>Умная колонка "Алиса"</h1>
+        <p>Идеальное дополнение для вашего умного дома. Управляйте светом, музыкой и новостями голосом.</p>
+        
+        <h3>Характеристики:</h3>
+        <ul>
+            <li><strong>Цвет:</strong> Космический серый</li>
+            <li><strong>Материал:</strong> Ткань, пластик</li>
+            <li><strong>Мощность:</strong> 20 Вт</li>
+            <li><strong>Связь:</strong> Wi-Fi, Bluetooth</li>
+        </ul>
+
+        <p>Рейтинг: ★★★★☆ (120 отзывов)</p>
+        <button class="btn-buy">Добавить в корзину</button>
+    </div>
+</main>
+
+<footer>
+</footer>
+
+</body>
+</html>

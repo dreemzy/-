@@ -1,0 +1,102 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal Progress List - Fixed</title>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background-color: #f0f0f0; }
+
+        .list-container {
+            background-color: #eee;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 8px;
+        }
+
+        ol {
+            display: flex; 
+            gap: 20px; 
+            background-color: #f5a9b8; 
+            padding: 25px;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        
+        li {
+            display: flex;
+            align-items: center; 
+            gap: 10px; 
+            color: #8e3a4d;
+            font-weight: bold;
+        }
+
+        
+        .progress-bar {
+            background-color: #cf6a7d;
+            width: 150px;
+            height: 35px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            color: white;
+        }
+
+        
+        .fill {
+            background-color: #8e3a4d;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            white-space: nowrap;
+            transition: width 0.3s;
+        }
+
+        
+        .w-40 { width: 40%; }
+        .w-55 { width: 55%; }
+        .w-80 { width: 80%; }
+        .w-30 { width: 30%; }
+        .w-45 { width: 45%; }
+    </style>
+</head>
+<body>
+
+    <div class="list-container">
+        <ol>
+            <li>
+                1. 
+                <div class="progress-bar">
+                    <div class="fill w-40">Apple</div>
+                </div>
+            </li>
+            <li>
+                2. 
+                <div class="progress-bar">
+                    <div class="fill w-55">Orange</div>
+                </div>
+            </li>
+            <li>
+                3. 
+                <div class="progress-bar">
+                    <div class="fill w-80">Pineapple</div>
+                </div>
+            </li>
+            <li>
+                4. 
+                <div class="progress-bar">
+                    <div class="fill w-30">Pear</div>
+                </div>
+            </li>
+            <li>
+                5. 
+                <div class="progress-bar">
+                    <div class="fill w-45">Cherry</div>
+                </div>
+            </li>
+        </ol>
+    </div>
+
+</body>
