@@ -1,0 +1,80 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Лучший магазин электроники и гаджетов">
+    <title>ElectroWorld — Интернет-магазин</title>
+    <style>
+        body { font-family: Arial, sans-serif; color: #333; line-height: 1.6; }
+        h1, h2 { color: #2c3e50; }
+        p { font-size: 16px; }
+        a { color: #3498db; text-decoration: none; }
+        
+        header, nav, main, section, footer { margin-bottom: 20px; padding: 10px; }
+        .product-card { 
+            border: 1px solid #ddd; 
+            padding: 15px; 
+            margin: 10px; 
+            display: inline-block; 
+            width: 200px; 
+            vertical-align: top;
+        }
+        .price { font-weight: bold; color: #e67e22; display: block; margin: 10px 0; }
+        .promo { background-color: #f1c40f; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><strong>ElectroWorld</strong></div>
+        <nav>
+            <a href="#">Главная</a> | 
+            <a href="#">Каталог</a> | 
+            <a href="#">О нас</a> | 
+            <a href="#">Контакты</a> | 
+            <a href="#">Корзина</a>
+        </nav>
+        <form>
+            <input type="text" placeholder="Поиск товаров...">
+            <button type="submit">Найти</button>
+        </form>
+    </header>
+
+    <main>
+        <h1>Добро пожаловать в ElectroWorld!</h1>
+
+        <section>
+            <h2>Популярные товары</h2>
+            
+            <article class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Смартфон">
+                <p><b>Смартфон X10</b></p>
+                <p><i>Мощный процессор и отличная камера.</i></p>
+                <span class="price">45 000 руб.</span>
+                <button>Добавить в корзину</button>
+            </article>
+
+            <article class="product-card">
+                <img src="https://via.placeholder.com/150" alt="Ноутбук">
+                <p><b>Ноутбук Pro 15</b></p>
+                <p><i>Идеально для работы и учебы.</i></p>
+                <span class="price">89 000 руб.</span>
+                <button>Добавить в корзину</button>
+            </article>
+        </section>
+
+        <section class="promo">
+            <h2>Акции и спецпредложения</h2>
+            <p>Скидка 10% на все наушники до конца недели!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ElectroWorld. Все права защищены.</p>
+        <p>Контактный телефон: 8-800-555-35-35</p>
+        <p>
+            Мы в соцсетях: 
+            <a href="#">VK</a> | <a href="#">Telegram</a>
+        </p>
+    </footer>
+
+</body>
