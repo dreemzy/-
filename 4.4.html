@@ -1,0 +1,273 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+       
+        body {
+            margin: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header__title {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        
+        .catalog {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center;
+        }
+
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            width: calc(25% - 20px); 
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+       
+        .product-card__image {
+            width: 100%;
+            height: 200px;
+            background-color: #ecf0f1;
+            object-fit: cover;
+        }
+
+        .product-card__body {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-card__name {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        .product-card__description {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-card__price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .product-card__button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .product-card__button:hover {
+            background-color: #219150;
+        }
+
+        
+        .product-card__button--out-of-stock {
+            background-color: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        
+        .footer {
+            background-color: #34495e;
+            color: #bdc3c7;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        
+
+       
+        @media (max-width: 992px) {
+            .product-card {
+                width: calc(33.333% - 20px); 
+            }
+        }
+
+        
+        @media (max-width: 768px) {
+            .product-card {
+                width: calc(50% - 20px); 
+            }
+            .header__title {
+                font-size: 20px;
+            }
+        }
+
+        
+        @media (max-width: 480px) {
+            .product-card {
+                width: 100%; 
+            }
+            .main-content {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="header__title">ElectroWorld</h1>
+    </header>
+
+    <main class="main-content">
+        <section class="catalog">
+            
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/i?id=77f32fbcc876daa6635c96061f91c471_l-8176762-images-thumbs&n=13" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Смартфон Pro Max</h3>
+                    <p class="product-card__description">Новейший флагман с отличной камерой и мощным процессором.</p>
+                    <div class="product-card__price">79 990 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/get-mpic/16479329/2a000001992bb0bf08bb4db1a871ca4c2baa/optimize" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Ноутбук Ultra Slim</h3>
+                    <p class="product-card__description">Легкий и мощный ноутбук для работы и путешествий.</p>
+                    <div class="product-card__price">124 000 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/i?id=67abc77620e7f72844788117d18346a0_l-5889061-images-thumbs&n=13" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Беспроводные наушники</h3>
+                    <p class="product-card__description">Чистый звук и активное шумоподавление.</p>
+                    <div class="product-card__price">12 500 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://vladimir.ibrat.ru/upload/iblock/2c7/aizsawyd80isz570ki7sd0ob7da83ggv.webp" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Умные часы v2</h3>
+                    <p class="product-card__description">Мониторинг здоровья и уведомления на вашем запястье.</p>
+                    <div class="product-card__price">18 000 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://vladimir.ibrat.ru/upload/cssinliner_webp/iblock/e87/k76ug8owr3o8kza52ljlohllv6s6hibj.webp" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Игровая консоль</h3>
+                    <p class="product-card__description">Мир развлечений в формате 4K.</p>
+                    <div class="product-card__price">45 900 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/get-mpic/5314345/2a00000195d739c8afde502cd9d4e35c2d50/optimize" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Планшет Air</h3>
+                    <p class="product-card__description">Идеальный инструмент для художников и дизайнеров.</p>
+                    <div class="product-card__price">56 000 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/i?id=a3fc86b054c0c57d7b242dbed8767a40_l-12714975-images-thumbs&n=13" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Монитор 4K</h3>
+                    <p class="product-card__description">Потрясающая цветопередача и четкость изображения.</p>
+                    <div class="product-card__price">29 000 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/get-mpic/11397617/2a0000019667f297c706f121f523c428400e/orig" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Механическая клавиатура</h3>
+                    <p class="product-card__description">RGB подсветка и приятный тактильный отклик.</p>
+                    <div class="product-card__price">8 400 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/i?id=fe9767ddf7a1211b13b720ca7288574d_l-9699933-images-thumbs&n=13" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Игровая мышь</h3>
+                    <p class="product-card__description">Высокая точность сенсора и эргономичный дизайн.</p>
+                    <div class="product-card__price">4 200 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <img src="https://avatars.mds.yandex.net/i?id=d91b0d0e92b11bc7415c42a0aff2608ba852211f-5450680-images-thumbs&n=13" alt="Товар" class="product-card__image">
+                <div class="product-card__body">
+                    <h3 class="product-card__name">Внешний диск 2TB</h3>
+                    <p class="product-card__description">Надежное хранилище для всех ваших файлов.</p>
+                    <div class="product-card__price">6 800 ₽</div>
+                    <button class="product-card__button">Добавить в корзину</button>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ElectroWorld. Все права защищены.</p>
+        <p>Контакты: info@electroworld.ru | Тел: 8 (800) 555-35-35</p>
+    </footer>
+
+</body>

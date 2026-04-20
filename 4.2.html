@@ -1,0 +1,144 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        
+        .page-wrapper {
+            background-color: #ffffff;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            gap: 25px;
+            padding: 25px;
+            box-sizing: border-box;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        
+        .article-content {
+            flex: 3; 
+        }
+
+        .article-content h2 {
+            margin-top: 0;
+            color: #000;
+            font-size: 1.4em;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5em;
+            color: #333;
+            text-align: left;
+        }
+
+        
+        .sidebar {
+            flex: 1; 
+            min-width: 200px;
+        }
+
+        .menu-block {
+            border: 1px solid #4a69bd;
+            border-radius: 3px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .menu-title {
+            background-color: #3c55a5;
+            color: white;
+            padding: 8px 12px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .menu-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu-list li {
+            background-color: #d1d8e0;
+            padding: 8px 12px;
+            border-bottom: 1px solid #fff;
+            font-size: 13px;
+            color: #2f3542;
+        }
+
+        .menu-list li:last-child {
+            border-bottom: none;
+        }
+
+
+        @media screen and (min-width: 600px) and (max-width: 800px) {
+            .sidebar {
+                display: none;
+            }
+            .article-content {
+                flex: 1; 
+            }
+        }
+
+       
+        @media screen and (max-width: 599px) {
+            .page-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <main class="article-content">
+            <h2>Introduction</h2>
+            <p>
+                Aenean dictum elit sapien, et tempor leo malesuada eget. Praesent sed metus laoreet lacus suscipit auctor in id turpis. Nullam a sapien quis urna tincidunt hendrerit. Nulla consectetur varius diam, et tincidunt velit ullamcorper ac. Sed rhoncus tempus tortor, at ornare nisi gravida at. Duis purus urna, tempor non posuere sed, ultrices ut tortor. Nullam pellentesque mi ut vehicula sagittis. In vel luctus tortor. Vivamus luctus, tellus ac bibendum scelerisque, leo leo lacinia ipsum, vitae aliquet velit enim lobortis erat. Quisque dictum a dolor vel condimentum. Phasellus vel lectus erat. Sed congue nec ex eget varius. Suspendisse ultrices tortor eu porttitor hendrerit.
+            </p>
+
+            <h2>Additional Information</h2>
+            <p>
+                Duis sed pharetra odio. Donec luctus posuere nibh, eget posuere nisl varius vel. Maecenas urna ante, facilisis id libero ut, vestibulum tristique lacus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque elit massa, dapibus et metus nec, lacinia lacinia diam. Aliquam id efficitur purus. Sed facilisis dolor ac enim ornare pretium. Nulla fermentum nisi eget ligula condimentum, ut dictum felis faucibus. Suspendisse urna purus, pretium sit amet vehicula nec, ullamcorper non tortor.
+            </p>
+            <p>
+                Aenean non placerat eros. Aliquam consequat quis lorem non vulputate. Mauris urna magna, porttitor eget posuere nec, dictum at mi. Aenean ornare libero in est laoreet, sit amet sodales enim bibendum. Etiam est ante, hendrerit sed efficitur vel, porttitor sed lacus. Nunc ipsum lectus, iaculis eget mauris nec, viverra pretium justo. Duis a turpis volutpat elit vulputate porttitor porta eu augue.
+            </p>
+        </main>
+
+        <aside class="sidebar">
+            <div class="menu-block">
+                <div class="menu-title">Actions</div>
+                <ul class="menu-list">
+                    <li>Integer ut magna cursus eros</li>
+                    <li>Fusce imperdiet sapien a sem</li>
+                    <li>Sed ac ligula in neque tincidunt</li>
+                </ul>
+            </div>
+
+            <div class="menu-block">
+                <div class="menu-title">Plans</div>
+                <ul class="menu-list">
+                    <li>Morbi at diam suscipit mauris</li>
+                    <li>Donec vel odio malesuada</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+</body>
