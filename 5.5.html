@@ -1,0 +1,519 @@
+
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог товаров с фильтрацией, формой и изображениями</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .header__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header__logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header__nav-list {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .header__nav-link {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .header__nav-link:hover {
+            color: #3498db;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .page-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        input:focus, select:focus, textarea:focus, button:focus {
+            outline: 2px solid #3498db;
+            outline-offset: 2px;
+            background-color: #fff;
+        }
+        .catalog-filter {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            height: fit-content;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .catalog-filter__title {
+            font-size: 18px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 5px;
+        }
+
+        .catalog-filter__group {
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .catalog-filter__group-title {
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .catalog-filter__label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .catalog-filter__select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+        .catalog {
+            flex: 1;
+        }
+
+        .catalog__grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 15px;
+            width: calc(100% - 20px); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+        }
+
+        
+        .product-card__image-wrapper {
+            background-color: #fff;
+            height: 200px;          
+            width: 100%;
+            border-radius: 6px;
+            overflow: hidden;        
+            display: flex;
+            align-items: center;     
+            justify-content: center;   
+            margin-bottom: 15px;
+        }
+
+        .product-card__image {
+            max-width: 100%;         
+            max-height: 100%;        
+            object-fit: contain;     
+            display: block;
+            padding: 5px;            
+        }
+
+        .product-card__title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .product-card__description {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-card__price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .product-card__button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .product-card__button:hover {
+            background-color: #2980b9;
+        }
+
+        .feedback-section {
+            background-color: #fff;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+
+        .feedback-section__title {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .feedback-form__group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .feedback-form__label {
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .feedback-form__input,
+        .feedback-form__select,
+        .feedback-form__textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fafafa;
+            font-size: 14px;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .feedback-form__textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .feedback-form__button {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .feedback-form__button:hover {
+            background-color: #27ae60;
+            transform: scale(1.02);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (min-width: 600px) {
+            .product-card {
+                width: calc(50% - 10px); 
+            }
+        }
+        @media (min-width: 900px) {
+            .page-layout {
+                flex-direction: row; 
+            }
+
+            .catalog-filter {
+                width: 280px;
+                position: sticky;
+                top: 20px;
+            }
+
+            .product-card {
+                width: calc(33.333% - 13.4px); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container header__container">
+            <div class="header__logo">ElectroWorld</div>
+            <nav class="header__nav">
+                <ul class="header__nav-list">
+                    <li><a href="#" class="header__nav-link">Главная</a></li>
+                    <li><a href="#" class="header__nav-link">Каталог</a></li>
+                    <li><a href="#" class="header__nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-layout">
+            
+            <aside class="catalog-filter">
+                <h2 class="catalog-filter__title">Фильтр товаров</h2>
+                <form action="#">
+                    <fieldset class="catalog-filter__group">
+                        <span class="catalog-filter__group-title">Категория:</span>
+                        <label class="catalog-filter__label">
+                            <input type="checkbox" name="category" value="smartphones"> Смартфоны
+                        </label>
+                        <label class="catalog-filter__label">
+                            <input type="checkbox" name="category" value="headphones"> Наушники
+                        </label>
+                        <label class="catalog-filter__label">
+                            <input type="checkbox" name="category" value="accessories"> Аксессуары
+                        </label>
+                    </fieldset>
+
+                    <fieldset class="catalog-filter__group">
+                        <span class="catalog-filter__group-title">Производитель:</span>
+                        <label class="catalog-filter__label">
+                            <input type="radio" name="brand" value="all" checked> Все бренды
+                        </label>
+                        <label class="catalog-filter__label">
+                            <input type="radio" name="brand" value="apple"> Apple
+                        </label>
+                        <label class="catalog-filter__label">
+                            <input type="radio" name="brand" value="samsung"> Samsung
+                        </label>
+                        <label class="catalog-filter__label">
+                            <input type="radio" name="brand" value="xiaomi"> Xiaomi
+                        </label>
+                    </fieldset>
+
+                    <div class="catalog-filter__group">
+                        <label class="catalog-filter__group-title" for="sort-select">Сортировка:</label>
+                        <select class="catalog-filter__select" id="sort-select" name="sort">
+                            <option value="popular">По популярности</option>
+                            <option value="price-asc">По возрастанию цены</option>
+                            <option value="price-desc">По убыванию цены</option>
+                            <option value="name">По названию</option>
+                        </select>
+                    </div>
+                </form>
+            </aside>
+
+            <main class="catalog">
+                <div class="catalog__grid">
+                    
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" scr="https://avatars.mds.yandex.net/get-mpic/1603927/2a000001919d535435c86f7c70c485171908/optimize" alt="Apple iPhone 15">
+                      
+                        </div>
+                        <h3 class="product-card__title">Смартфон Apple iPhone 15</h3>
+                        <p class="product-card__description">Флагманский смартфон с великолепной камерой и мощным процессором.</p>
+                        <div class="product-card__price">89 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/5521597/2a000001938c2d23c3ded152618b136d8568/optimize"Samsung Galaxy S24">
+                        </div>
+                        <h3 class="product-card__title">Смартфон Samsung Galaxy S24</h3>
+                        <p class="product-card__description">Современный экран Dynamic AMOLED и поддержка искусственного интеллекта.</p>
+                        <div class="product-card__price">79 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/15342477/k_plus_AuvyPwpaZgCtm355J75h/optimize" alt="AirPods Pro 2">
+                        </div>
+                        <h3 class="product-card__title">Наушники AirPods Pro 2</h3>
+                        <p class="product-card__description">Активное шумоподавление и кристально чистый пространственный звук.</p>
+                        <div class="product-card__price">24 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/11179429/2a000001979a6fe5fd8942224a91d9fe5820/optimize" alt="Xiaomi 14">
+                        </div>
+                        <h3 class="product-card__title">Смартфон Xiaomi 14</h3>
+                        <p class="product-card__description">Компактный флагман с оптикой Leica и супербыстрой зарядкой.</p>
+                        <div class="product-card__price">65 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/5303294/img_id2873518958346866530.jpeg/optimize" alt="MagSafe">
+                        </div>
+                        <h3 class="product-card__title">Беспроводная зарядка MagSafe</h3>
+                        <p class="product-card__description">Удобная и быстрая магнитная зарядка для ваших гаджетов.</p>
+                        <div class="product-card__price">3 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/13072406/2a0000019ab60b598bc7cc8efc65ca5bedb7/optimize" alt="Silicone Case">
+                        </div>
+                        <h3 class="product-card__title">Чехол Silicone Case</h3>
+                        <p class="product-card__description">Надежная защита корпуса от царапин, сколов и падений.</p>
+                        <div class="product-card__price">1 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/12363834/2a000001983876bbf1c1e6652b2476b57d9f/optimize" alt="Galaxy Buds2">
+                        </div>
+                        <h3 class="product-card__title">Наушники Samsung Galaxy Buds2</h3>
+                        <p class="product-card__description">Легкие беспроводные наушники с отличной эргономикой.</p>
+                        <div class="product-card__price">11 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/11778691/2a0000018bc38695eb171dd35211648640ad/orig"Powerbank">
+                        </div>
+                        <h3 class="product-card__title">Повербанк 20000 mAh</h3>
+                        <p class="product-card__description">Внешний аккумулятор высокой емкости для долгих поездок.</p>
+                        <div class="product-card__price">4 500 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/20467160/2a0000019d875a22d535f69cbff793bc8c47/optimize" alt="Redmi Note 13">
+                        </div>
+                        <h3 class="product-card__title">Смартфон Xiaomi Redmi Note 13</h3>
+                        <p class="product-card__description">Народный выбор: большой экран, емкая батарея, доступная цена.</p>
+                        <div class="product-card__price">19 990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                    <article class="product-card">
+                        <div class="product-card__image-wrapper">
+                            <img class="product-card__image" src="https://avatars.mds.yandex.net/get-mpic/5236458/2a00000196495e508a01ea020fcaa0958660/optimize">
+                        </div>
+                        <h3 class="product-card__title">Кабель USB-C/Lightning 1м</h3>
+                        <p class="product-card__description">Прочный кабель в тканевой оплетке для зарядки и синхронизации.</p>
+                        <div class="product-card__price">990 ₽</div>
+                        <button class="product-card__button">В корзину</button>
+                    </article>
+
+                </div>
+            </main>
+        </div>
+
+        <section class="feedback-section">
+            <h2 class="feedback-section__title">Обратная связь</h2>
+            <form class="feedback-form" action="#" method="POST">
+                
+                <div class="feedback-form__group">
+                    <label class="feedback-form__label" for="fb-name">Имя:</label>
+                    <input class="feedback-form__input" type="text" id="fb-name" name="name" required placeholder="Введите ваше имя">
+                </div>
+
+                <div class="feedback-form__group">
+                    <label class="feedback-form__label" for="fb-email">Email:</label>
+                    <input class="feedback-form__input" type="email" id="fb-email" name="email" required placeholder="example@mail.com">
+                </div>
+
+                <div class="feedback-form__group">
+                    <label class="feedback-form__label" for="fb-subject">Тема сообщения:</label>
+                    <select class="feedback-form__select" id="fb-subject" name="subject">
+                        <option value="question">Вопрос по товару</option>
+                        <option value="order">Проблема с заказом</option>
+                        <option value="cooperation">Сотрудничество</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="feedback-form__group">
+                    <label class="feedback-form__label" for="fb-message">Сообщение:</label>
+                    <textarea class="feedback-form__textarea" id="fb-message" name="message" required placeholder="Ваше сообщение..."></textarea>
+                </div>
+
+                <button class="feedback-form__button" type="submit">Отправить</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ElectroWorld. Все права защищены. Лабораторная работа №4-5.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
